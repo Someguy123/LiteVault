@@ -1,0 +1,7 @@
+public/assets/js/wallet.js*
+lib/wallet.js*
+.idea
+node_modules/
+helpers/blockr-api.js*
+config.js
+dev/

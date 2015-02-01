@@ -1,0 +1,12 @@
+{{#each transactions}}
+    <tr>
+        <td>{{this.amount}}</td>
+        <td>{{this.tx}}
+            (<a href="https://ltc.blockr.io/tx/info/{{this.tx}}" target="_blank">Blockr</a>)
+            (<a href="http://explorer.litecoin.net/tx/{{this.tx}}" target="_blank">LTC Explorer</a>)
+        </td>
+        <td>{{this.address}}</td>
+        <td>{{this.confirmations}}</td>
+        <td>{{timeSince this.time_utc}} ago</td>
+    </tr>
+{{/each}}

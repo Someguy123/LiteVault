@@ -1,0 +1,67 @@
+<div class="row wallet-container">
+    <div class="col-md-6 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Login</div>
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <div class="form-group-lg">
+                        <label for="identifier">Identifier</label>
+                        <input type="text" class="form-control" id="identifier-txt" name="identifier"/>
+                    </div>
+                    <div class="form-group-lg">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password-txt" name="password"/>
+                    </div>
+                    <hr/>
+                    <div class="form-group-lg">
+                        <button class="btn btn-primary" id="login-btn">Login</button>
+                        <a href="/wallet/create">
+                            <button class="btn btn-info" id="register-lnk">Register</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="well col-md-6 col-xs-12">
+        <h2>Need Help?</h2>
+        <a href="/wallet/forgot2fa">Lost 2FA</a>
+        <h4>I lost my password</h4>
+        <p>Due to the way LiteVault works, we CANNOT help you with a lost password,
+            your wallet is encrypted and we don't store the password, or any hash on our servers.
+        We can only help you with lost authenticators, or other forms of 2FA.</p>
+    </div>
+
+
+</div>
+
+<div class="modal fade" id="authenticatorModal" tabindex="-1" role="dialog" aria-labelledby="authenticatorModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="authenticatorModalLabel">This wallet has 2FA enabled. Please
+                    authenticate</h4>
+            </div>
+            <div class="modal-body">
+                <p>Please enter the numeric code from your authenticator app. This wallet has 2-Factor authentication
+                    and you cannot login without entering a valid 2FA token for this account.</p>
+                <input type="text" class="form-control" id="authenticator-token" placeholder="e.g. 123455"/><br/>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="is-trusted-chk" />
+                        Trust this device (don't ask me for a 2-Factor token for a week)
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="authenticator-btn">Login</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

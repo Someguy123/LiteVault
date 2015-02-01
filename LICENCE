@@ -1,0 +1,52 @@
+        LiteVault Proprietary Licence
+                    January 31st 2014
+
+        Official Site: https://www.litevault.net
+
+        Creator: Someguy123 (http://someguy123.com)
+==================================================
+
+"LiteVault" refers to the LiteVault website, and/or the
+project source code in this repository
+
+"Someguy123" refers to the person behind the psuedonym
+Someguy123, who created LiteVault, is an administrator on
+Litecointalk, and is part owner of LitecoinLocal.
+
+"Litecoin" refers to the Cryptocurrency named Litecoin.
+
+
+LiteVault is a web application designed to
+facilitate transactions on the Litecoin
+network by offering a "web wallet" where a user
+remains in control of their private keys.
+
+This licence covers any file belonging to the
+LiteVault project (which is further owned by
+Someguy123) that is not covered by an existing
+licence prior to publishing.
+
+Areas of the source code that are not covered by
+this licence include external libraries such as
+Bootstrap (both CSS and Javascript), BitcoinJS
+(compiled version in assets), external modules
+installed from package.json, and may extend to
+other areas of the project at Someguy123's discretion.
+
+PERMISSION IS GRANTED TO
+
+  - run the service locally for
+    - experimenting
+    - security analysis
+    - creating modifications (which are required to be
+    made public under this same licence)
+
+  - use the source code for educational purposes such as:
+    - learning about cryptocurrency networks
+    - understanding BitcoinJS
+    - understanding the implementation of other libraries
+
+If you want to use the source code for any other purpose,
+for example running LiteVault for a different cryptocurrency,
+you will need to contact Someguy123 (contact details are
+  available on the LiteVault site)

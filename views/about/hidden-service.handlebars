@@ -1,0 +1,53 @@
+{{>about-nav}}
+<h1>Litevault Hidden Service</h1>
+<p>To protect our users privacy and security, we have a Tor hidden service
+set up at <a href="http://vaultu7dxw5bbg37.onion/">http://vaultu7dxw5bbg37.onion/</a> -
+If you use Tor to access LiteVault, it's <strong>EXTREMELY IMPORTANT</strong> that you
+use our Hidden Service URL rather than accessing the normal URL. Below you will find
+an explanation of what can happen if you continue to use the regular URL over Tor, and
+why our hidden service protects you from this.</p>
+
+<h2>The Problem</h2>
+
+<p>When you request a clearnet (non .onion address) through Tor, the request goes
+through three (can be changed) tor relays, one of which is an exit node. The first node
+knows your IP address, but they can't see what you're sending (it's encrypted), the exit
+node does NOT know your IP, but they CAN see what you're sending (they can decrypt it).
+This allows the exit node to forward your request to the server you're accessing (e.g.
+litevault.net).</p>
+
+<p>Not only can the exit node see your traffic, they can also manipulate it. This means
+it's possible for them to serve you a non-SSL version of our website, bypassing our measures
+to prevent that happening.</p>
+
+<p>WITHOUT Tor, your browser saves a header we send called
+    <strong>HTTP Strict Transport Security</strong>, or HSTS for short. This header tells
+your browser to NEVER try to access LiteVault without SSL, and if the SSL certificate changes
+(our proof that we are the real owners of LiteVault.net), you will get a big warning telling you
+that something bad is happening.</p>
+
+<p>The problem with Tor happens primarily due to the Tor Browser Bundle. The Tor browser is
+configured to be highly anonymous, but because of this, it does NOT remember HSTS headers.
+This means once you close Tor Browser, it forgets that we told it to NEVER try to access our
+site without SSL. This means even if you've accessed the site using SSL previously, if you
+close the browser and come back at another time and your first request to the site goes through
+a malicious exit node, they can send you a fake version of LiteVault, or even inject malicious
+Javascript to steal your passwords, as well as modify our Javascript to remove any safeguards.</p>
+
+<h2>The solution</h2>
+
+<p>To solve this problem, we now detect users who are accessing our site on the clearnet via Tor and
+we show them a big red banner informing them that they are NOT secure, and that they
+must use our hidden service to prevent them losing their coins.</p>
+<div class="text-center">
+    <a href="http://i.imgur.com/0KGsU3T.png" target="_blank">
+        <img src="http://i.imgur.com/0KGsU3T.png" alt="Screenshot of Red Banner" width="400"/>
+    </a>
+</div>
+
+<p>Unlike clearnet URLs (like LiteVault.net), Tor Nodes CANNOT manipulate hidden services. This means
+when you access our site via the official hidden service URL (vaultu7dxw5bbg37.onion), your connection
+is fully encrypted from your browser, to our servers, and cannot be intercepted or modified by malicious
+Tor nodes.</p>
+
+<h3>TL;DR; - If you're using Tor to access LiteVault. <strong>USE THE HIDDEN SERVICE, OR YOU RISK YOUR WALLET BEING STOLEN.</strong></h3>

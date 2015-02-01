@@ -1,0 +1,59 @@
+<div class="row wallet-container">
+    <div class="well col-xs-12 col-md-6">
+        <h2>Why should I use your service?</h2>
+        <p>Our wallet service is one of the most secure online wallets available for Litecoin,
+        we use a trustless model, meaning your wallet is encrypted and kept in your browser,
+        this way, we cannot access your funds, see your balance, or lock you into our service,
+        you remain in complete control of your private keys, just like a desktop wallet.</p>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Register</div>
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <div class="form-group-lg">
+                        <label for="password-txt">Email (optional, used for forgot 2FA/Identifier)</label>
+                        <input type="text" class="form-control" id="email-txt" name="email"/>
+                    </div>
+                    <div class="form-group-lg">
+                        <label for="password-txt">Password</label>
+                        <input type="password" class="form-control" id="password-txt" name="password"/>
+                    </div>
+                    <div class="form-group-lg">
+                        <label for="password">Confirm Password</label>
+                        <input type="password" class="form-control" id="password-txt-confirm" name="password-confirm"/>
+                    </div>
+                    <div class="form-group-lg">
+                        <button class="btn btn-primary" id="register-btn">Create Account</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="registeredModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Successfully Registered</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Thanks for registering</h3>
+                    <p>You may now log into LiteVault, here is your identifier, please keep this safe
+                        or you may lose access to your coins:</p>
+                    <pre id="reg-identifier"></pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    window.onload = function () {
+        $('#password-txt').pwstrength();
+    };
+</script>
