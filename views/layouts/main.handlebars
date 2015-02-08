@@ -25,7 +25,8 @@
     -->
     <link rel="stylesheet" href="/assets/css/flatly.min.css">
 
-    <!-- Optional theme -->
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">-->
     <link rel="stylesheet" href="/assets/css/wallet.css"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -60,12 +61,6 @@
 <div class="container">
     <div class="row" style="margin-top: 15px;">
         <div class="col-xs-12">
-            <div class="alert alert-danger" style="margin-bottom: 0;">
-                Warning: This site is under construction. Please keep
-                backups if you plan on experimenting with the service. It's recommended to
-                export your private keys into something like Electrum or the
-                Official Litecoin Client if you need a reliable client.
-            </div>
             {{#if is_tor}}
                 <div class="alert alert-danger">SECURITY ISSUE: Dear Tor user, you're accessing
                     our clearnet site over Tor. This puts you at risk of your SSL being removed and

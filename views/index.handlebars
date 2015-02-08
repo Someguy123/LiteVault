@@ -1,82 +1,115 @@
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="col-xs-12 col-sm-12">
 
-        <div class="row text-center visible-xs visible-sm">
-            <img src="https://i.imgur.com/zxauFKU.png" width="80%" alt="Litevault"/>
+        <h1 class="text-center">Welcome to LiteVault, the trustless online wallet for Litecoin</h1>
+        <div class="row text-center">
+            <img src="https://i.imgur.com/zxauFKU.png" class="lvlogo" alt="Litevault"/>
         </div>
-        <h1>Welcome to LiteVault, the trustless online wallet for Litecoin</h1>
-        <p>Litevault is a service created by <a href="http://www.someguy123.com">Someguy123</a> who is well known for building
-            and operating services such as <a href="https://www.litecoinlocal.net">Litecoinlocal</a> and the
-            <a href="http://explorer.litecoin.net">Official Litecoin Block Explorer</a></p>
 
-        <p>Discuss the service on <a href="http://www.reddit.com/r/litecoin/comments/2r6dbf/its_finally_here_litevault_a_trustless_wallet/">Reddit</a> and <a href="https://litecointalk.org/index.php?topic=24092">Litecointalk</a></p>
-
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 text-center">
+                <i class="fa fa-lock fa-5x"></i>
+                <h3>Secure</h3>
+                <p>Your wallet is encrypted before it touches our servers. Unlike other Litecoin wallet services, we <strong>NEVER</strong> see your private keys, and are unable to access your funds.</p>
+            </div>
+            <div class="col-xs-12 col-sm-4 text-center">
+                <i class="fa fa-rocket fa-5x"></i>
+                <h3>Fast</h3>
+                <p>No blockchain download needed, <a href="/wallet">sign up for an account</a> in less than 10 seconds</p>
+            </div>
+            <div class="col-xs-12 col-sm-4 text-center">
+                <i class="fa fa-smile-o fa-5x"></i>
+                <h3>Easy</h3>
+                <p>LiteVault is extremely easy to use, send and receive litecoins without downloading any software</p>
+            </div>
+        </div>
         <hr/>
-        <h4>Unlike other Litecoin wallet services, we <strong>NEVER</strong> see your private keys, and are unable to access your funds.</h4>
-        <p>This is possible due to AES encrypting your wallet in the browser before sending it to the server for cloud backup,
-            plus all private key operations are done in the browser, so your Litecoins never touch our server.</p>
-        <strong>This service is not ran as a business and relies on the community to keep it alive. If you use the service, please
-            donate, even just $1 in Litecoins contribute towards development time, and server costs.</strong>
-        <script src="//blockr.io/js_external/coinwidget/coin.js"></script>
-        <script>
-            CoinWidgetCom.go({
-                wallet_address: 'LNWEjx3DKSAWKX5fkWfCwa2tWSQeo7ZmnR',
-                currency: 'litecoin',
-                counter: 'amount',
-                lbl_button: 'Donate',
-                lbl_count: 'donations',
-                lbl_amount: 'LTC',
-                lbl_address: 'Use address below to donate. Thanks!',
-                qrcode: true,
-                alignment: 'bl',
-                decimals: 8,
-                size: "small",
-                color: "dark",
-                countdownFrom: "100",
-                element: "#coinwidget-litecoin-LNWEjx3DKSAWKX5fkWfCwa2tWSQeo7ZmnR",
-                onShow: function(){},
-                onHide: function(){}
-            });
-        </script>
-        <div id="coinwidget-litecoin-LNWEjx3DKSAWKX5fkWfCwa2tWSQeo7ZmnR"></div>
-        <br/>
-        <script src="//blockr.io/js_external/coinwidget/coin.js"></script>
-        <script>
-            CoinWidgetCom.go({
-                wallet_address: '17PPTHmS8N34KYKdDc4Gn1psabteGS8EE3',
-                currency: 'bitcoin',
-                counter: 'amount',
-                lbl_button: 'Donate',
-                lbl_count: 'donations',
-                lbl_amount: 'BTC',
-                lbl_address: 'Use address below to donate. Thanks!',
-                qrcode: true,
-                alignment: 'bl',
-                decimals: 8,
-                size: "small",
-                color: "dark",
-                countdownFrom: "0",
-                element: "#coinwidget-bitcoin-17PPTHmS8N34KYKdDc4Gn1psabteGS8EE3",
-                onShow: function(){},
-                onHide: function(){}
-            });
-        </script>
-        <div id="coinwidget-bitcoin-17PPTHmS8N34KYKdDc4Gn1psabteGS8EE3"></div>
-        <hr/>
-
         <div class="row">
             <div class="col-xs-6"><a href="/wallet/login" class="btn btn-primary form-control">Login</a></div>
             <div class="col-xs-6"><a href="/wallet/create" class="btn btn-info form-control">Register</a></div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-6">
-        <div class="row text-center visible-md visible-lg">
-            <img src="https://i.imgur.com/zxauFKU.png" height="300" alt="Litevault"/>
+        <hr/>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="text-center youtube-embed-sucks">
+                    <iframe src="https://www.youtube.com/embed/q7B7S88RtV8" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
-        <br/>
-        <div class="row text-center">
-            <a class="twitter-timeline" href="https://twitter.com/compgenius999" data-widget-id="552421118154670080">Tweets by @compgenius999</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <hr/>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 text-center">
+                <a href="https://twitter.com/someguy123" target="_blank">
+                    <i class="fa fa-twitter fa-5x"></i>
+                    <h3>Litevault on Twitter</h3>
+                </a>
+
+            </div>
+            <div class="col-xs-12 col-sm-4 text-center">
+                <a href="https://litecointalk.org/index.php?topic=24092" target="_blank">
+                    <i class="fa fa-comments fa-5x"></i>
+                    <h3>Litecointalk Thread</h3>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-4 text-center">
+                <a href="http://www.reddit.com/r/litecoin/comments/2r6dbf/its_finally_here_litevault_a_trustless_wallet/" target="_blank">
+                    <i class="fa fa-reddit fa-5x"></i>
+                    <h3>Reddit Thread</h3>
+                </a>
+            </div>
+        </div>
+        <hr/>
+
+        <div class="well">
+            <strong>This service is not ran as a business and relies on the community to keep it alive. If you use the service, please
+                donate, even just $1 in Litecoins contribute towards development time, and server costs.</strong>
+            <script src="//blockr.io/js_external/coinwidget/coin.js"></script>
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <div id="coinwidget-litecoin-LNWEjx3DKSAWKX5fkWfCwa2tWSQeo7ZmnR"></div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div id="coinwidget-bitcoin-17PPTHmS8N34KYKdDc4Gn1psabteGS8EE3"></div>
+                </div>
+            </div>
         </div>
     </div>
+    <script>
+        CoinWidgetCom.go({
+            wallet_address: 'LNWEjx3DKSAWKX5fkWfCwa2tWSQeo7ZmnR',
+            currency: 'litecoin',
+            counter: 'amount',
+            lbl_button: 'Donate',
+            lbl_count: 'donations',
+            lbl_amount: 'LTC',
+            lbl_address: 'Use address below to donate. Thanks!',
+            qrcode: true,
+            alignment: 'bl',
+            decimals: 8,
+            size: "small",
+            color: "dark",
+            countdownFrom: "100",
+            element: "#coinwidget-litecoin-LNWEjx3DKSAWKX5fkWfCwa2tWSQeo7ZmnR",
+            onShow: function(){},
+            onHide: function(){}
+        });
+        CoinWidgetCom.go({
+            wallet_address: '17PPTHmS8N34KYKdDc4Gn1psabteGS8EE3',
+            currency: 'bitcoin',
+            counter: 'amount',
+            lbl_button: 'Donate',
+            lbl_count: 'donations',
+            lbl_amount: 'BTC',
+            lbl_address: 'Use address below to donate. Thanks!',
+            qrcode: true,
+            alignment: 'bl',
+            decimals: 8,
+            size: "small",
+            color: "dark",
+            countdownFrom: "0",
+            element: "#coinwidget-bitcoin-17PPTHmS8N34KYKdDc4Gn1psabteGS8EE3",
+            onShow: function(){},
+            onHide: function(){}
+        });
+    </script>
 </div>
