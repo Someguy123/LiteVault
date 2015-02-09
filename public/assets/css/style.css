@@ -7,11 +7,15 @@ h1, h2, h3, h4, h5, h6, .btn {
     text-transform: uppercase;
 }
 h1, h2, h3, h4, h5, h6 {
-    margin:5px 0;
+    padding: 5px 0;
+    margin: 0;
 }
 h1 {
     font-size: 75px;
     letter-spacing: 6px;
+}
+h2 {
+    font-size: 50px;
 }
 h3 {
     font-size: 30px;
@@ -19,7 +23,7 @@ h3 {
 strong, b {
     font-weight: 600;
 }
-a, .btn {
+a, .btn, .contact_box {
     -webkit-transition: color 0.2s, background 0.2s;
     -moz-transition: color 0.2s, background 0.2s;
     -ms-transition: color 0.2s, background 0.2s;
@@ -81,7 +85,21 @@ a.light {
     font-weight: 300;
     margin-right:10px;
 }
-
+/*
+ * MAIN HEADER
+ */
+.main_header {
+    background: #ececec;
+    border-bottom:2px solid #d0d0d0;
+    letter-spacing: 8px;
+    text-align: center;
+    height:140px;
+    line-height: 140px;
+}
+.main_header h1 {
+    height:140px;
+    line-height: 140px;
+}
 /*
  * BTN
  */
@@ -214,4 +232,30 @@ body {
     .footer {
         height: 80px;
     }
+}
+
+/*
+ * CONTACT
+ */
+.contact_box {
+    padding:25px;
+    cursor:pointer;
+    color:#06464e;
+}
+.contact_box:hover {
+    background: #ececec;
+}
+.contact_box h2 {
+    height: 55px;
+    line-height: 55px;
+}
+.contact_box img {
+    height: 52px;
+}
+.contact_box h3 {
+    padding:25px 0 0;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-align: center;
+    min-height: 100px;
 }
