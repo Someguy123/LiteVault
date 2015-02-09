@@ -1,19 +1,33 @@
-{{>about-nav}}
-<h1>About Litevault</h1>
 
-<p>Litevault is an online wallet service which uses in-browser
-    cryptography to reduce the risk of the coin operator running with the funds.
-This same system is used by Blockchain.info - a well known online Bitcoin wallet
-(UNAFFILIATED WITH LITEVAULT).</p>
+<div class="row main_header single">
+    <h1>
+        About Litevault
+    </h1>
+</div>
 
-<h3>How does it work?</h3>
 
-<p>When you login to LiteVault, your browser sends your identifier to our server,
-we return an encrypted version of your wallet with the AES algorithm, your browser then
-decrypts this using your password (which is never sent to the server) to load your private keys
-used to sign transactions.</p>
-<p>When you send Litecoins via LiteVault, we use the private keys in your browser memory
-to sign a transaction form your address, we then post that crafted transaction to our server
-as a hash which we cannot modify, we can only push the transaction out to the network.</p>
-
-<p>PAGE TO BE COMPLETED</p>
+<div class="container">
+    <br>
+    <!-- Info boxes (type 2) -->
+    <div class="row">
+        <div class="col-xs-12 information_box">
+            <h3>What is Litevault?</h3>
+            <p>
+                Litevault is an online wallet service which uses in-browser cryptography to reduce the risk of the coin operator running with the funds.
+                This same system is used by Blockchain.info - a well known online Bitcoin wallet (UNAFFILIATED WITH LITEVAULT).
+            </p>
+        </div><br>
+        <div class="col-xs-12 information_box">
+            <h3>How does it work?</h3>
+            <p>
+                When you login to LiteVault, your browser sends your identifier to our server,
+                we return an encrypted version of your wallet with the AES algorithm,
+                your browser then decrypts this using your password (which is never sent to the server)
+                to load your private keys used to sign transactions.
+                <br><br><br>
+                When you send Litecoins via LiteVault, we use the private keys in your browser memory to sign a transaction form your address,
+                we then post that crafted transaction to our server as a hash which we cannot modify, we can only push the transaction out to the network.
+            </p>
+        </div><br>
+    </div>
+</div>
