@@ -104,7 +104,7 @@ a.light {
     line-height: 140px;
 }
 .main_header.double h1 {
-    height:110px;
+    min-height: 110px;
     line-height: 110px;
 }
 .main_header.double h3 {
@@ -113,7 +113,7 @@ a.light {
     color:#06464e;
 }
 .main_header.double {
-    height:160px;
+    min-height: 160px;
     line-height: 160px;
 }
 /*
