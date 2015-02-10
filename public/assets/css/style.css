@@ -96,7 +96,7 @@ a.light {
     border-bottom:2px solid #d0d0d0;
     letter-spacing: 8px;
     text-align: center;
-    height:140px;
+    min-height: 140px;
     line-height: 140px;
 }
 .main_header.single h1 {
