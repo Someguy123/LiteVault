@@ -44,7 +44,7 @@ a.light {
     max-width:1000px;
 }
 .row {
-    margin:0;
+    /* margin:0; */
 }
 .col-xs-2{
     padding:0;
