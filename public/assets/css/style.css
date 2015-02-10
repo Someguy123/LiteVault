@@ -66,10 +66,20 @@ a.light {
     color: white;
     text-transform: uppercase;
 }
+.navbar-brand>img {
+    display:inline-block;
+    height:100%;
+    float: left;
+    padding-right: 7px;
+}
 .navbar-default .navbar-nav>li>a {
     margin:0 4px;
 }
-
+.navbar-brand span {
+    height: 100%;
+    line-height: 35px;
+}
+.navbar-default .navbar-brand:hover,
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:hover
@@ -83,10 +93,11 @@ a.light {
     border:0;
 }
 .navbar-brand {
-    background-color: #06464e;
     font-size:22px;
     font-weight: 300;
     margin-right:10px;
+    padding: 7px 7px;
+    display: inline-block;
 }
 /*
  * MAIN HEADER
