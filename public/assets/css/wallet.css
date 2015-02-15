@@ -5,9 +5,6 @@ pre {
     /* Pre tag wasn't respecting top padding */
     margin: 1em;
 }
-.wallet-container {
-    padding-top: 5px;
-}
 .progress {
     margin-top: 15px;
     margin-bottom: 5px;

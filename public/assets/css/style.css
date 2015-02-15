@@ -2,7 +2,7 @@ body {
     font-family: "Titillium Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color:#30282a;
 }
-h1, h2, h3, h4, h5, h6, .btn {
+h1, h2, h3, h4, h5, h6, .btn-primary {
     font-family: "Teko", "Titillium Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
 }
@@ -20,6 +20,11 @@ h2 {
 h3 {
     font-size: 30px;
 }
+h4 {
+    font-family: "Titillium Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+}
 strong, b {
     font-weight: 600;
 }
@@ -31,7 +36,15 @@ a, .btn, .contact_box {
     transition: color 0.2s, background 0.2s;
 }
 * {
-    outline: 0;
+    outline: 0 !important;
+    border-radius: 0 !important;
+}
+*:focus {
+    outline: 0 !important;
+    box-shadow: 0 !important;
+}
+a {
+    color: #3A8189;
 }
 a.light:hover {
     color: #FFFFFF;
@@ -39,6 +52,12 @@ a.light:hover {
 a.light {
     color: #7FC5CD;
     text-decoration: none;
+}
+input.form-control {
+    height: 33px;
+    background: #ececec;
+    box-shadow: none;
+    border: 1px solid #d5d5d5;
 }
 .container {
     max-width:1000px;
@@ -51,6 +70,7 @@ a.light {
 }
 .form-control:focus {
     box-shadow: none;
+    border-color: rgb(73, 139, 146);
 }
 #slide_1 .stretch-to-col {
     width:100%;
@@ -102,17 +122,27 @@ a.light {
 /*
  * MAIN HEADER
  */
+.logged_header {
+    padding-left:20px;
+    padding-right:20px;
+    max-height: 155px;
+    position: relative;
+}
+.logged_header .nav {
+    letter-spacing: 0;
+    font-weight: normal;
+    position: absolute;
+    bottom: -2px;
+}
 .main_header {
     background: #ececec;
     border-bottom:2px solid #d0d0d0;
     letter-spacing: 8px;
     text-align: center;
-    min-height: 140px;
-    line-height: 140px;
 }
 .main_header.single h1 {
-    height:140px;
-    line-height: 140px;
+    height: 110px;
+    line-height: 110px;
 }
 .main_header.double h1 {
     min-height: 80px;
@@ -133,16 +163,29 @@ a.light {
  */
 .btn {
     border-radius: 0;
-    padding:12px;
+    padding: 8px;
     border:0;
-    font-size: 30px;
+    font-size: 16px;
     line-height: 1.1;
 }
 .btn-primary {
     background: #2b6268;
 }
-.btn-primary:hover {
+.btn-primary:hover, .btn-default:hover {
     background: #285459;
+    color: white;
+}
+.btn-primary, .btn-white {
+    font-family: "Teko", "Titillium Web", Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size:30px;
+    padding:12px;
+}
+.btn-default {
+    font-family: "Titillium Web", Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    background: #2b6268;
+    color: white;
 }
 .btn-white {
     color:black;
@@ -192,6 +235,9 @@ a.light {
 #slide_3 .info_box, .information_box {
     margin-top: 15px;
     margin-bottom: 15px;
+}
+.index_faq {
+    margin:0 10px;
 }
 
 /*
@@ -327,4 +373,21 @@ body {
 
         padding-top: 0;
     }
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    border: 1px solid #d0d0d0;
+    border-bottom-color: transparent;
+}
+/* TABLE */
+.table-bordered {
+    border: 0;
+}
+tbody tr:nth-child(odd) {
+    background: rgb(244, 244, 244);
+}
+
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+    border: 0;
+    border-top: 1px solid rgb(186, 186, 186);
 }
