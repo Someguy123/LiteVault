@@ -55,9 +55,10 @@ a.light {
 }
 input.form-control {
     height: 33px;
-    background: #ececec;
+    background: #FAFAFA;
     box-shadow: none;
     border: 1px solid #d5d5d5;
+    box-shadow: 1px 1px 18px -8px rgb(205, 205, 205) inset;
 }
 .container {
     max-width:1000px;
@@ -379,15 +380,15 @@ body {
     border: 1px solid #d0d0d0;
     border-bottom-color: transparent;
 }
-/* TABLE */
-.table-bordered {
-    border: 0;
-}
 tbody tr:nth-child(odd) {
     background: rgb(244, 244, 244);
 }
 
-.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
-    border: 0;
-    border-top: 1px solid rgb(186, 186, 186);
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {}
+
+select.form-control {
+    height: 33px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 14px !important;
 }
