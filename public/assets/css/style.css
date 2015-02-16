@@ -392,3 +392,7 @@ select.form-control {
     padding-bottom: 0 !important;
     font-size: 14px !important;
 }
+input[type='text'].form-control, input[type='password'].form-control {
+    height: 33px;
+    padding: 8px;
+}
