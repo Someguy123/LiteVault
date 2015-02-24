@@ -171,6 +171,7 @@ router.post('/update', function(req, res) {
  */
 router.get('/getunspent/:addr', function(req, res) {
     var address = new Blockr.Address;
+    res.setHeader('Content-Type', 'application/json');
 
     address.unspent(req.params.addr, function(data) {
         res.end(data);
@@ -179,6 +180,7 @@ router.get('/getunspent/:addr', function(req, res) {
 
 router.get('/getbalances/:addr', function(req, res) {
     var address = new Blockr.Address;
+    res.setHeader('Content-Type', 'application/json');
 
     address.balances(req.params.addr, function(data) {
         res.end(data);
@@ -187,6 +189,7 @@ router.get('/getbalances/:addr', function(req, res) {
 
 router.post('/pushtx', function(req, res) {
     var TX = new Blockr.TX;
+    res.setHeader('Content-Type', 'application/json');
 
     TX.push(req.body.hex, function(data) {
         res.end(data);
@@ -195,6 +198,7 @@ router.post('/pushtx', function(req, res) {
 
 router.get('/addresstxs/:addr', function(req, res) {
     var address = new Blockr.Address;
+    res.setHeader('Content-Type', 'application/json');
 
     address.txs(req.params.addr, function(data) {
         res.end(data);
