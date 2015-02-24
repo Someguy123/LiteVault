@@ -30,11 +30,11 @@
 
             <table id="list-transactions-outer" class="table table-bordered">
                 <thead>
+                <th>Date</th>
                 <th>Amount</th>
-                <th>TXID</th>
                 <th>Your Address</th>
                 <th>Confirmations</th>
-                <th>Date</th>
+                <th>View</th>
                 </thead>
                 <tbody id="list-transactions">
                     <tr><td colspan="5">Error loading transactions?</td></tr>
@@ -46,11 +46,12 @@
             <table id="list-addresses-outer" class="table table-bordered">
                 <thead>
                 <th>Address</th>
-                <th>Private Key</th>
+                <th>Balance</th>
+                <th>Options</th>
                 <th>Delete?</th>
                 </thead>
                 <tbody id="list-addresses">
-                    <tr><td colspan="3">Error loading addresses?</td></tr>
+                    <tr><td colspan="4">Error loading addresses?</td></tr>
                 </tbody>
             </table>
 
@@ -261,6 +262,24 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="txModal" tabindex="-1" role="dialog" aria-labelledby="txModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="txModalLabel">Transaction Sent</h4>
+                </div>
+                <div class="modal-body">
+                    Transaction ID: <p id="txModalTXID">ERROR</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

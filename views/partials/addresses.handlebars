@@ -1,7 +1,8 @@
 {{#each addresses}}
-    <tr>
+    <tr data-address="{{@key}}">
         <td>{{@key}}</td>
-        <td>{{this.priv}}</td>
+        <td>0</td>
+        <td><button class="btn btn-success viewkey-btn">View Private Key</button></td>
         <td><button class="btn btn-danger deleteaddr-btn">Delete</button></td>
     </tr>
 {{/each}}

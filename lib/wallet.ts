@@ -542,6 +542,17 @@ var data
     , encWalletDataCipher // TODO: Remove, it's here for debugging
     , wallet;
 
+function renderTransactions() {
+    if (Object.keys(wallet.addresses).length > 0) {
+        wallet.getTransactions(function (data) {
+            $('#list-transactions').html(
+                Handlebars.templates['transactions']({transactions: data})
+            );
+        });
+    } else {
+        $('#list-transactions').html("");
+    }
+}
 function initializeWallet(wallet) {
 
     wallet.load(function() {
@@ -553,13 +564,15 @@ function initializeWallet(wallet) {
         // update balance every 10 seconds
         setInterval(function() { wallet.refreshBalances(); }, 10000);
 
+        setInterval(function() { renderTransactions(); }, 30000);
+
         // shows "wallet saved" in top right corner when save events happen
         wallet.registerSaveListener(flashWalletSaved);
         wallet.registerAddAddressListener(function(a,b) {
             console.log('address listener called');
             console.log(a);
             console.log(b);
-            $('#list-addresses').append('<tr><td>' + a + "</td><td>"  + b.priv +'</td>' + '<td><button class="btn btn-danger deleteaddr-btn">Delete</button></td></tr>');
+            $('#list-addresses').html(Handlebars.templates['addresses']({addresses: wallet.addresses}));
             renderAddresses();
         });
         wallet.registerBalanceChangeListener(function(balances) {
@@ -569,20 +582,19 @@ function initializeWallet(wallet) {
         wallet.registerDelAddressListener(function(address) {
             renderAddresses();
         });
-        $('.wallet-container').html(Handlebars.templates['wallet']);
+        wallet.registerTransactionPushedListener(function(data) {
+            console.log(data);
+            $('#txModalTXID').html(data.data);
+            $('#txModal').modal('toggle');
+            renderTransactions();
+        });
+            $('.wallet-container').html(Handlebars.templates['wallet']);
         if(wallet.is2Factor) {
             $('#2fa-status').css({color: 'green'});
             $('#2fa-status').html('Enabled');
         }
-        if(Object.keys(wallet.addresses).length > 0) {
-            wallet.getTransactions(function(data) {
-                $('#list-transactions').html(
-                    Handlebars.templates['transactions']({transactions: data})
-                );
-            });
-        } else {
-            $('#list-transactions').html("");
-        }
+        renderTransactions();
+
 
         $('#list-addresses').html(Handlebars.templates['addresses']({addresses: wallet.addresses}));
         // now that the button actually exists, we register the click event
@@ -749,10 +761,17 @@ var flashWalletSaved = function() {
     setTimeout(function() { $('#walletsaved').hide(); }, 3000);
 };
 
+declare var balance;
 function renderAddresses() {
     $('#select-my-addresses').html("");
     for(var v in wallet.balances) {
         $('#select-my-addresses').append('<option value="'+v+'">'+v+" ("+wallet.balances[v]+" LTC)</option>");
+        // update balance in the address table
+        balance = $('tr[data-address='+v+']');
+        if(balance.length > 0) {
+            balance = balance[0].children[1];
+            balance.innerHTML = wallet.balances[v];
+        }
     }
 
 }
@@ -858,7 +877,6 @@ var beep = (function () {
 declare var the_date;
 function timeSince(date) {
     date = new Date(date);
-    console.log(date);
     the_date = new Date();
     var seconds = Math.floor((the_date - date) / 1000);
 
