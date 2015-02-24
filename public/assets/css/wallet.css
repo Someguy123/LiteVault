@@ -5,9 +5,6 @@ pre {
     /* Pre tag wasn't respecting top padding */
     margin: 1em;
 }
-.wallet-container {
-    padding-top: 5px;
-}
 .progress {
     margin-top: 15px;
     margin-bottom: 5px;
@@ -20,26 +17,6 @@ html {
     position: relative;
     min-height: 100%;
 }
-body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
-}
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px;
-    background-color: #f5f5f5;
-}
-.footer-container {
-    width: auto;
-    padding: 0 15px;
-}
-.footer-container .text-muted {
-    margin: 20px 0;
-}
-
 #alerts-section>.alert {
     margin-bottom: 5px;
 }
