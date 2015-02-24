@@ -92,11 +92,23 @@
                     </p>
                 </div>
                 <div class="row top_padder">
-                    <div class="col-xs-6 col-md-6 text-center">
-                        <div id="coinwidget-litecoin-LNWEjx3DKSAWKX5fkWfCwa2tWSQeo7ZmnR"></div>
+                    <!-- For security reasons, we don't load the coin widget on wallet pages-->
+                        {{#isWallet current_url}}
+                        <div class="col-xs-6 col-md-12 text-center">
+                            LTC: <b>LNWEjx3DKSAWKX5fkWfCwa2tWSQeo7ZmnR</b>
+                        {{else}}
+                        <div class="col-xs-6 col-md-6 text-center">
+                            <div id="coinwidget-litecoin-LNWEjx3DKSAWKX5fkWfCwa2tWSQeo7ZmnR"></div>
+                        {{/isWallet}}
+
                     </div>
-                    <div class="col-xs-6 col-md-6 text-center">
-                        <div id="coinwidget-bitcoin-17PPTHmS8N34KYKdDc4Gn1psabteGS8EE3"></div>
+                        {{#isWallet current_url}}
+                            <div class="col-xs-6 col-md-12 text-center">
+                                BTC: <b>17PPTHmS8N34KYKdDc4Gn1psabteGS8EE3</b>
+                        {{else}}
+                            <div class="col-xs-6 col-md-6 text-center">
+                                <div id="coinwidget-bitcoin-17PPTHmS8N34KYKdDc4Gn1psabteGS8EE3"></div>
+                        {{/isWallet}}
                     </div>
                 </div>
             </div>
@@ -116,16 +128,20 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<!-- Donation -->
-<script src="//blockr.io/js_external/coinwidget/coin.js"></script>
-
 <!-- Include all compiled plugins (below), or include individual files as needed -->
+
 <script src="/assets/js/litevault-deps.js"></script>
 <script src="/assets/js/hbpartials.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="/assets/js/wallet.js"></script>
+
+<!-- Donation -->
+{{#isWallet current_url}}
+{{else}}
+<script src="//blockr.io/js_external/coinwidget/coin.js"></script>
 <script src="/assets/js/main.js"></script>
+{{/isWallet}}
 </body>
 </html>

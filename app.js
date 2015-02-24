@@ -33,6 +33,13 @@ var hbs =  exphbs.create({
             if(url == current_url) {
                 return 'class=active'
             }
+        },
+        isWallet: function(current_url, options) {
+            if (current_url == "/wallet/login" || current_url == "/wallet/register") {
+                return options.fn(this);
+            } else {
+                return  options.inverse(this);
+            }
         }
     },
     partialsDir: 'views/server_partials'
