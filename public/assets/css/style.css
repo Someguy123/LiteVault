@@ -396,3 +396,12 @@ input[type='text'].form-control, input[type='password'].form-control {
     height: 33px;
     padding: 8px;
 }
+
+.btn-secondary {
+    background: rgb(77, 77, 77);
+    color: white;
+}
+.btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
+    background: rgb(27, 27, 27);
+    color:white;
+}
