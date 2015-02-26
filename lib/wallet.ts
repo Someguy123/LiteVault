@@ -450,6 +450,8 @@ class Wallet {
         this.callDelAddressListeners(address);
     }
 
+
+
     /**
      * wallet_serialize()
      *
@@ -553,6 +555,21 @@ function renderTransactions() {
         $('#list-transactions').html("");
     }
 }
+
+function makeColor(chars) {
+    chars = parseInt(chars, 22.5) % 12 * 30;
+    return '<div style="background-color: hsl('+chars+', 95%, 45%);"></div>';
+}
+function colorTag(address) {
+    var hash = CryptoJS.MD5(address).toString(),
+        tags = '<div class="colortag">';
+    for(var i=0;i<3;i++) {
+        var size = 2;
+        tags += makeColor(hash.substring((i*size)+size, i*size));
+    }
+    tags += '</div>';
+    return tags;
+}
 function initializeWallet(wallet) {
 
     wallet.load(function() {
@@ -618,7 +635,7 @@ function initializeWallet(wallet) {
         });
 
         $('#list-addresses').on("click", ".deleteaddr-btn", function() {
-            var theAddress = this.parentElement.parentElement.children[0].innerHTML;
+            var theAddress = this.parentElement.parentElement.attributes['data-address'].value;
             $('#deletingAddress').html(theAddress);
             $('#deleteAddressModal').modal('toggle');
         });
@@ -627,7 +644,7 @@ function initializeWallet(wallet) {
             for (var v in $('#list-addresses').children()) {
                 // silence typescript
                 var row : any = $('#list-addresses').children()[v];
-                var address = row.children[0].innerHTML;
+                var address = row.attributes['data-address'].value;
                 if (address == $('#deletingAddress').html()) {
                     row.remove();
                 }
@@ -762,10 +779,17 @@ var flashWalletSaved = function() {
 };
 
 declare var balance;
+
 function renderAddresses() {
-    $('#select-my-addresses').html("");
+    var myAddr = $('#select-my-addresses');
+    //myAddr.children().remove().end();
     for(var v in wallet.balances) {
-        $('#select-my-addresses').append('<option value="'+v+'">'+v+" ("+wallet.balances[v]+" LTC)</option>");
+        var cld = myAddr.children('[value="'+v+'"]');
+        if(cld.length > 0) {
+            cld[0].innerHTML = v+" ("+wallet.balances[v]+" LTC)";
+        } else {
+            myAddr.append('<option value="' + v + '">' + v + " (" + wallet.balances[v] + " LTC)</option>");
+        }
         // update balance in the address table
         balance = $('tr[data-address='+v+']');
         if(balance.length > 0) {
@@ -773,7 +797,6 @@ function renderAddresses() {
             balance.innerHTML = wallet.balances[v];
         }
     }
-
 }
 $('#login-btn').click(function() {
     var identifier = $('#identifier-txt').val()
@@ -907,4 +930,8 @@ function timeSince(date) {
 }
 Handlebars.registerHelper('timeSince', function(time) {
     return timeSince(time);
+});
+
+Handlebars.registerHelper('colortag', function(address) {
+    return new Handlebars.SafeString(colorTag(address));
 });

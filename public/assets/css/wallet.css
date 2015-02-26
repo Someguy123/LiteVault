@@ -47,3 +47,15 @@ html {
         width: 60%;
     }
 }
+
+.colortag {
+    width:30px;
+    height:10px;
+    margin-top: 9px;
+    float:right;
+}
+.colortag>div {
+    height: 100%;
+    width:33%;
+    float: left;
+}
