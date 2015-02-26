@@ -573,7 +573,7 @@ function colorTag(address) {
 function initializeWallet(wallet) {
 
     wallet.load(function() {
-
+        $('.ltc-balance').html('0 LTC');
         pulseAlerts();
 
         setInterval(pulseAlerts, 30000);
@@ -593,7 +593,7 @@ function initializeWallet(wallet) {
             renderAddresses();
         });
         wallet.registerBalanceChangeListener(function(balances) {
-            $('#ltc-balance').html(wallet.getTotalBalance().toFixed(5));
+            $('.ltc-balance').html(wallet.getTotalBalance().toFixed(5));
             renderAddresses();
         });
         wallet.registerDelAddressListener(function(address) {
