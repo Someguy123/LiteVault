@@ -650,6 +650,14 @@ function initializeWallet(wallet) {
                 }
             }
         });
+
+        $('#list-addresses .viewkey-btn').click(function() {
+            var address = $(this).parent().parent().attr('data-address');
+            var privkey = wallet.addresses[address].priv;
+            $('#privkey-showtext').val(privkey);
+            $('#privkeyModal').modal('toggle');
+        });
+
         $('#export-wallet-json-link').click(function() {
             $('#wallet-exported-txt').html(wallet.wallet_serialize(true));
             $('#exportWalletModal').modal('toggle');
