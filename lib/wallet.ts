@@ -669,6 +669,14 @@ function initializeWallet(wallet) {
             $('#signmessage-address').html(address);
             $('#signMessageModal').modal('toggle');
         });
+
+        $('#list-addresses .qr-btn').click(function() {
+            var address = $(this).parent().parent().attr('data-address');
+            $('#qrcode-img').attr('src', 'https://someguy123.com/coinwidget/qr/?address=litecoin:' + address);
+            $('#qrcode-address').html(address);
+            $('#qrcodeModal').modal('toggle');
+        });
+
         $('#sign-message-btn').click(function() {
             var address = $('#signmessage-address').html();
             var message = $('#sign-message').val();
