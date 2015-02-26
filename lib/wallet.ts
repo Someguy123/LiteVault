@@ -450,6 +450,12 @@ class Wallet {
         this.callDelAddressListeners(address);
     }
 
+    signMessage(address, message) {
+        var privkey = new Bitcoin.ECKey.fromWIF(this.addresses[address].priv),
+            signed_message = Bitcoin.Message.sign(privkey, message, this.coin_network);
+        return signed_message.toString('base64');
+    }
+
 
 
     /**
@@ -656,6 +662,23 @@ function initializeWallet(wallet) {
             var privkey = wallet.addresses[address].priv;
             $('#privkey-showtext').val(privkey);
             $('#privkeyModal').modal('toggle');
+        });
+
+        $('#list-addresses .signkey-btn').click(function() {
+            var address = $(this).parent().parent().attr('data-address');
+            $('#signmessage-address').html(address);
+            $('#signMessageModal').modal('toggle');
+        });
+        $('#sign-message-btn').click(function() {
+            var address = $('#signmessage-address').html();
+            var message = $('#sign-message').val();
+            $('#signed-message').html(wallet.signMessage(address, message));
+        });
+        // clear the signed messages when closed
+        $('#signMessageModal').on('hidden.bs.modal', function (e) {
+            $('#signmessage-address').html("");
+            $('#sign-message').val("");
+            $('#signed-message').html("");
         });
 
         $('#export-wallet-json-link').click(function() {

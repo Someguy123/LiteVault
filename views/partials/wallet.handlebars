@@ -304,4 +304,28 @@
         </div>
     </div>
 
+    <div class="modal fade" id="signMessageModal" tabindex="-1" role="dialog" aria-labelledby="signMessageModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="signMessageModalLabel">Sign Message</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Address: <strong id="signmessage-address"></strong></p>
+                    <label for="sign-message"></label>
+                    <textarea id="sign-message" class="form-control" cols="30" rows="5"></textarea><br/>
+                    <label for="signed-message">Signed Message</label>
+                    <textarea id="signed-message" class="form-control" cols="30" rows="5" disabled="disabled"></textarea><br/>
+                    <button class="btn btn-success" id="sign-message-btn">Sign Message</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
