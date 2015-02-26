@@ -593,7 +593,7 @@ function initializeWallet(wallet) {
             renderAddresses();
         });
         wallet.registerBalanceChangeListener(function(balances) {
-            $('#ltc-balance').html(wallet.getTotalBalance().toString());
+            $('#ltc-balance').html(wallet.getTotalBalance().toFixed(5));
             renderAddresses();
         });
         wallet.registerDelAddressListener(function(address) {
