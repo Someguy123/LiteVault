@@ -4,6 +4,12 @@
     </div>
     <br><br>
     <div class="container">
+        <div class="col-xs-12">
+            {{#if is_ie}}
+                <div class="alert alert-danger"><strong>WARNING:</strong> Internet Explorer is NOT supported at the moment due to compatibility issues. You will need to use Google Chrome or Firefox. If you continue to use Internet Explorer, you may <strong>lose your addresses PERMANENTLY</strong> and we cannot help you recover them.</div>
+            {{/if}}
+
+        </div>
         <div class="col-md-6 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
