@@ -64,7 +64,7 @@ app.use(function(req, res, next) {
 app.use(function(req, res, next) {
     res.locals.is_ie = false;
     var ua = req.headers['user-agent'];
-    if(ua.search('Trident') > 0 || ua.search('MSIE') > 0) {
+    if(ua.search('Trident') > 0 || ua.search('MSIE') > 0 || ua.search('Edge') > 0) {
         res.locals.is_ie = true;
     }
     res.locals.current_url = req.path; // This is the important line
