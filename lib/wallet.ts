@@ -356,8 +356,8 @@ class Wallet {
                     console.log(data);
                     var tx = new Bitcoin.Transaction();
                     // IMPORTANT! We're dealing with Satoshis now
-                    var totalUnspent = data.total * Math.pow(10, 8);
-                    amount = amount * Math.pow(10,8);
+                    var totalUnspent : number = parseInt((data.total * Math.pow(10, 8)).toString());
+                    amount = parseInt((amount * Math.pow(10,8)).toString());
                     console.log('Sending ' + amount + ' satoshis from ' + fromAddress + ' to ' + toAddress + ' unspent amt: ' + totalUnspent);
                     var unspents = data.unspent;
                     for(var v in unspents) {
@@ -371,7 +371,7 @@ class Wallet {
                         console.log('WARNING: Total is greater than total unspent: %s - Actual Fee: %s', totalUnspent, estimatedFee);
                         return;
                     }
-                    var changeValue = totalUnspent - amount - estimatedFee;
+                    var changeValue : number = parseInt((totalUnspent - amount - estimatedFee).toString());
                     tx.addOutput(fromAddress, changeValue);
 
                     tx.ins.forEach(function(input, index) {
@@ -388,7 +388,13 @@ class Wallet {
                     var rawHex = tx.toHex();
                     console.log(rawHex);
 
-                    _this.pushTX(rawHex, function() { beep(300, 4); });
+                    _this.pushTX(rawHex, function() {
+                        try {
+                            beep(300, 4);
+                        } catch(e) {
+                            console.error('Beep is not supported by this browser???');
+                        }
+                        });
 
                 });
 
