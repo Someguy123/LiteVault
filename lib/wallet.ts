@@ -914,32 +914,36 @@ interface Window { audioContext: any; webkitAudioContext: any; }
 
 var beep = (function () {
 
-
-    var ctx = new(window.audioContext || window.webkitAudioContext);
-    return function (duration, type, finishedCallback = function() {}) {
-
-        duration = +duration;
-
-        // Only 0-4 are valid types.
-        type = (type % 5) || 0;
-
-        if (typeof finishedCallback != "function") {
-            finishedCallback = function () {};
-        }
-
-        var osc = ctx.createOscillator();
-
-        osc.type = type;
-
-        osc.connect(ctx.destination);
-        osc.noteOn(0);
-
-        setTimeout(function () {
-            osc.noteOff(0);
-            finishedCallback();
-        }, duration);
-
-    };
+    try {
+        var ctx = new(window.audioContext || window.webkitAudioContext);
+        return function (duration, type, finishedCallback = function() {}) {
+    
+            duration = +duration;
+    
+            // Only 0-4 are valid types.
+            type = (type % 5) || 0;
+    
+            if (typeof finishedCallback != "function") {
+                finishedCallback = function () {};
+            }
+    
+            var osc = ctx.createOscillator();
+    
+            osc.type = type;
+    
+            osc.connect(ctx.destination);
+            osc.noteOn(0);
+    
+            setTimeout(function () {
+                osc.noteOff(0);
+                finishedCallback();
+            }, duration);
+    
+        };
+    } catch(e) {
+        console.error('beep not supported?: ', e);
+        return function (duration,type,finishedCallback) {};
+    }
 })();
 // silence typescript
 declare var the_date;
