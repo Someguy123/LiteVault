@@ -354,10 +354,16 @@ class Wallet {
                 this.getUnspent(fromAddress, function(data) {
                     data = _this.calculateBestUnspent(amount, data)
                     console.log(data);
+                    // temporary constant
+                    var minFeePerKb = 100000;
                     var tx = new Bitcoin.Transaction();
                     // IMPORTANT! We're dealing with Satoshis now
                     var totalUnspent : number = parseInt((data.total * Math.pow(10, 8)).toString());
                     amount = parseInt((amount * Math.pow(10,8)).toString());
+                    if(amount < minFeePerKb) {
+                        alert("You must send at least 0.001 LTC (otherwise your transaction may get rejected)");
+                        return;
+                    }
                     console.log('Sending ' + amount + ' satoshis from ' + fromAddress + ' to ' + toAddress + ' unspent amt: ' + totalUnspent);
                     var unspents = data.unspent;
                     for(var v in unspents) {
@@ -371,12 +377,15 @@ class Wallet {
                         estimatedFee = estimatedFee * 3;
                     }
                     if((amount + estimatedFee) > totalUnspent) {
-                        alert("Can't fit fee of " + estimatedFee + " - lower your sending amount");
+                        alert("Can't fit fee of " + estimatedFee / Math.pow(10,8) + " - lower your sending amount");
                         console.log('WARNING: Total is greater than total unspent: %s - Actual Fee: %s', totalUnspent, estimatedFee);
                         return;
                     }
                     var changeValue : number = parseInt((totalUnspent - amount - estimatedFee).toString());
-                    tx.addOutput(fromAddress, changeValue);
+                    // only give change if it's bigger than the minimum fee
+                    if(changeValue >= minFeePerKb) {
+                        tx.addOutput(fromAddress, changeValue);
+                    }
 
                     tx.ins.forEach(function(input, index) {
                         tx.sign(index, new Bitcoin.ECKey.fromWIF(_this.addresses[fromAddress].priv));
