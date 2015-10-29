@@ -366,6 +366,10 @@ class Wallet {
                     tx.addOutput(toAddress, amount);
                     console.log(tx);
                     var estimatedFee = _this.coin_network.estimateFee(tx);
+                    if(estimatedFee > 0) {
+                        // Temporary fix for "stuck" transactions
+                        estimatedFee = estimatedFee * 3;
+                    }
                     if((amount + estimatedFee) > totalUnspent) {
                         alert("Can't fit fee of " + estimatedFee + " - lower your sending amount");
                         console.log('WARNING: Total is greater than total unspent: %s - Actual Fee: %s', totalUnspent, estimatedFee);
