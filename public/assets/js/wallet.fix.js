@@ -293,16 +293,23 @@ var Wallet = (function () {
 
         for (var v in transactions) {
           var t = transactions[v];
-          var address = (+t.vout[0].value) > (+t.vout[1].value) ? t.vout[0].scriptPubKey.addresses[0] : t.vout[1].scriptPubKey.addresses[0];
+          var address;
+          if(t.vout.length === 1 ){
+            address = t.vout[0].scriptPubKey.addresses[0];
+          }else if( t.vout.length === 2 ){
+            address = (+t.vout[0].value) > (+t.vout[1].value) ? t.vout[0].scriptPubKey.addresses[0] : t.vout[1].scriptPubKey.addresses[0];
+          }else{
+            console.log("unable to determine address from transaction.vout:"+t.vout);
+          }
 
-      var newTx = {
-        time_utc: (t.time-1)*1000,
-        address: address,
-        amount: t.valueOut,
-        confirmations: t.confirmations,
-        tx: t.txid
-      }
-      allTransactions.push(newTx);
+          var newTx = {
+            time_utc: (t.time-1)*1000,
+            address: address,
+            amount: t.valueOut,
+            confirmations: t.confirmations,
+            tx: t.txid
+          }
+          allTransactions.push(newTx);
         }
         return allTransactions;
     };
@@ -924,4 +931,3 @@ Handlebars.registerHelper('timeSince', function(time) {
 Handlebars.registerHelper('colortag', function(address) {
   return new Handlebars.SafeString(colorTag(address));
 });
-//# sourceMappingURL=wallet.js.map
