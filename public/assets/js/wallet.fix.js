@@ -304,7 +304,7 @@ var Wallet = (function () {
           if(myAddresses.indexOf( input.addr ) > -1 ){
             address = input.addr;
             t.vout.forEach( function(o){
-              if(myAddresses.indexOf(o.scriptPubKey.addresses[0]) === -1) sendVout = o;
+              if( address !== o.scriptPubKey.addresses[0] ) sendVout = o;
             })
             amtTransacted = -((+sendVout.value) + fee);
 
