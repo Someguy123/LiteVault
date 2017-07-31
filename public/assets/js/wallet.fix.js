@@ -290,27 +290,52 @@ var Wallet = (function () {
     };
     Wallet.prototype.sortTransactions = function (transactions) {
         var allTransactions = [];
+        var myAddresses = Object.keys(this.addresses);
 
-        for (var v in transactions) {
-          var t = transactions[v];
+        transactions.forEach( function(t){
           var address;
-          if(t.vout.length === 1 ){
-            address = t.vout[0].scriptPubKey.addresses[0];
-          }else if( t.vout.length === 2 ){
-            address = (+t.vout[0].value) > (+t.vout[1].value) ? t.vout[0].scriptPubKey.addresses[0] : t.vout[1].scriptPubKey.addresses[0];
-          }else{
-            console.log("unable to determine address from transaction.vout:"+t.vout);
+          var amtTransacted;
+          var vout;
+          var sendVout;
+          var input = t.vin[0];
+          var fee = t.valueIn - t.valueOut;
+
+          // if input is in my addresses, this is a send
+          if(myAddresses.indexOf( input.addr ) > -1 ){
+            address = input.addr;
+            t.vout.forEach( function(o){
+              if(myAddresses.indexOf(o.scriptPubKey.addresses[0]) === -1) sendVout = o;
+            })
+            amtTransacted = -((+sendVout.value) + fee);
+
+            allTransactions.push({
+              time_utc: (t.time-1)*1000,
+              address: address,
+              amount: amtTransacted,
+              confirmations: t.confirmations,
+              tx: t.txid
+            });
           }
 
-          var newTx = {
-            time_utc: (t.time-1)*1000,
-            address: address,
-            amount: t.valueOut,
-            confirmations: t.confirmations,
-            tx: t.txid
+          t.vout.forEach( function(o){
+            if(myAddresses.indexOf(o.scriptPubKey.addresses[0]) > -1) vout = o;
+          })
+          if(vout && vout.scriptPubKey.addresses[0] !== address){ // is a receive from somewhere external, but isnt change
+            address = vout.scriptPubKey.addresses[0];
+            amtTransacted = +vout.value;
+
+            allTransactions.push({
+              time_utc: (t.time-1)*1000,
+              address: address,
+              amount: amtTransacted,
+              confirmations: t.confirmations,
+              tx: t.txid
+            });            
           }
-          allTransactions.push(newTx);
-        }
+        })
+        console.log("total balance"+allTransactions.reduce( function(acc, t){
+          return acc+t.amount;
+        }, 0))
         return allTransactions;
     };
     Wallet.prototype.getTransactions = function (callback) {
